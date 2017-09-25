@@ -93,7 +93,7 @@ public class EditServlet extends HttpServlet {
 		System.out.println("tenentid "+userid+"packageid "+packageid+"robotName "+robotid);
 		String url = "jdbc:mysql://localhost:3306/robocode";
 		String user = "root";
-		String password = "root";
+		String password = "1234";
 		System.out.println("Hi");
 		try {
 			Connection conn = DriverManager.getConnection(url, user, password);

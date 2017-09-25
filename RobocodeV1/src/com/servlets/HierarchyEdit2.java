@@ -84,8 +84,7 @@ public class HierarchyEdit2 extends HttpServlet {
 		for (int i = 0; i < permission2.length; i++) {
 			try {
 				Connection connection = DriverManager
-						.getConnection("jdbc:mysql://robocodedb.cloudapp.net:3306/Role?user=naren&password=naren");
-
+						.getConnection("jdbc:mysql://localhost:3306/Role?user=naren&password=naren");
 				Statement statement = (Statement) connection.createStatement();
 				String newstmt = "Delete from Hierarchical_Role_Permission where HierarchicalPermissionID='"
 						+ permission2[i]

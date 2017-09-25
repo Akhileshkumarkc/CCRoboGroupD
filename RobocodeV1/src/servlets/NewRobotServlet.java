@@ -115,7 +115,7 @@ public class NewRobotServlet extends HttpServlet {
 		
 		String url = "jdbc:mysql://localhost:3306/robocode";
 		String username = "root";
-		String password = "root";
+		String password = "1234";
 		String robotCode=
 				"package "+packageName+";\n"+
 				"import robocode.*;\n"+
@@ -182,14 +182,14 @@ public class NewRobotServlet extends HttpServlet {
 			statement.setString(5, user);
 			statement.setString(2, robotCode);
 			statement.setString(7, "Y");
-			statement.setString(6, "C:/robocode/robots/"+packageName+"/"+robotName+".java");
+			statement.setString(6, "/Users/neethuantony/git/CCRoboGroupD/RobocodeV1/robocode/robots/"+packageName+"/"+robotName+".java");
 			int count = statement.executeUpdate();
 			//File file = new File("C://robocode//robots//robocode//robots//"+packageName+"//"+robotName+".java");
 			try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream("C://robocode//robots//"+packageName+"//"+robotName+".java"), "utf-8"))) {
+					new FileOutputStream("//Users//neethuantony//git//CCRoboGroupD//RobocodeV1//robocode//robots//"+packageName+"//"+robotName+".java"), "utf-8"))) {
 				writer.write(robotCode);
 			}
-			String filePath2="C:/robocode/robots/"+packageName+"/"+robotDTO.getRobotName()+".java";
+			String filePath2="/Users/neethuantony/git/CCRoboGroupD/RobocodeV1/robocode/robots/"+packageName+"/"+robotDTO.getRobotName()+".java";
 			//update file in database
 			sql="UPDATE robot SET file = ? WHERE robotID='"+robotName+"'";
 			//sql="UPDATE robot SET file = load_file ('C:/robocode/robots/"+packageName+"/"+robotDTO.getRobotName()+".java') WHERE robotID='"+robotName+"'";
@@ -218,7 +218,7 @@ public class NewRobotServlet extends HttpServlet {
 			
 			statement = conn.prepareStatement(sql);
 			count = statement.executeUpdate();*/
-			robotAccessDTO.setFilePath("C:/robocode/robots/"+packageName+"/"+robotName+".java");
+			robotAccessDTO.setFilePath("/Users/neethuantony/git/CCRoboGroupD/RobocodeV1/robocode/robots/"+packageName+"/"+robotName+".java");
 			/*//statement.setString(1, filePath2);
 			PreparedStatement ps1 = conn.prepareStatement("UPDATE robot SET file=? WHERE robotID='"+robotDTO.getRobotName()+"'");
 			byte[] byteData = RobotCode.getBytes("UTF-8");//Better to specify encoding

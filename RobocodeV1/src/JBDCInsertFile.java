@@ -16,7 +16,7 @@ public class JBDCInsertFile {
 	public static void main(String[] args) throws FileNotFoundException {
 		String url = "jdbc:mysql://localhost:3306/robocode";
 		String user = "root";
-		String password = "root";
+		String password = "1234";
 
 		String filePath2 = "C:/robocode/robots/sample/Interactive.java";
 

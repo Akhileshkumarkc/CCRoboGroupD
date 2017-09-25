@@ -60,7 +60,7 @@ public class CompileServlet extends HttpServlet {
 			byte[] compiledCode=Compile.compile(packageID, robotID, RobotCode, getServletContext().getRealPath("/")+"robocode.jar");
 			String url = "jdbc:mysql://localhost:3306/robocode";
 			String user = "root";
-			String password = "root";
+			String password = "1234";
 			conn = DriverManager.getConnection(url, user, password);
 			String sql = "UPDATE robot SET file=? WHERE RobotID='"+robotDTO.getRobotName()+"'";
 			PreparedStatement statement = conn.prepareStatement(sql);

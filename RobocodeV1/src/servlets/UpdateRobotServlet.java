@@ -65,7 +65,7 @@ public class UpdateRobotServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String url = "jdbc:mysql://localhost:3306/robocode";
 		String user = "root";
-		String password = "root";
+		String password = "1234";
 
 		RobotDTO robotDTO = null;
 		//String userName = session.getAttribute("userx").toString();
@@ -84,7 +84,7 @@ public class UpdateRobotServlet extends HttpServlet {
 		robotDTO = (RobotDTO) session.getAttribute("RobObj");
 		robotDTO.setUpdatedDate(String.valueOf(new Date()));
 		robotDTO.setRobotCode(RobotCode);
-		robotDTO.setFilePath("C:/robocode/robots/"+robotDTO.getPackageId()+"/"+robotDTO.getRobotName()+".java");
+		robotDTO.setFilePath("/Users/neethuantony/git/CCRoboGroupD/RobocodeV1/robocode/robots/"+robotDTO.getPackageId()+"/"+robotDTO.getRobotName()+".java");
 		request.setAttribute("User",robotDTO.getUserId());
 
 		UpdateRobotRestClientService updateRobot = new UpdateRobotRestClientService();
@@ -113,10 +113,10 @@ public class UpdateRobotServlet extends HttpServlet {
 			count = statement2.executeUpdate();
 			//System.out.println(robotDTO.getRobotCode());
 			try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream("C://robocode//robots//"+robotDTO.getPackageId()+"//"+robotDTO.getRobotName()+".java"), "utf-8"))) {
+					new FileOutputStream("//Users//neethuantony//git//CCRoboGroupD//RobocodeV1/robocode//robots//"+robotDTO.getPackageId()+"//"+robotDTO.getRobotName()+".java"), "utf-8"))) {
 				writer.write(robotDTO.getRobotCode());
 			}
-			String filePath2="C:/robocode/robots/"+robotDTO.getPackageId()+"/"+robotDTO.getRobotName()+".java";
+			String filePath2="/Users/neethuantony/git/CCRoboGroupD/RobocodeV1/robocode/robots/"+robotDTO.getPackageId()+"/"+robotDTO.getRobotName()+".java";
 			//update file in database
 			sql="UPDATE robot SET file = ? WHERE robotID='"+robotDTO.getRobotName()+"'";
 			//sql2="select convert(file using utf8) from robot";

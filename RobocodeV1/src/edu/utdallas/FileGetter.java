@@ -53,7 +53,7 @@ public class FileGetter extends HttpServlet{
 		try{
 			String url = "jdbc:mysql://localhost:3306/robocode";
 			String user = "root";
-			String password = "password";
+			String password = "1234";
 			conn = DriverManager.getConnection(url, user, password);
 			String sql = "select * from robot";
 			PreparedStatement statement = conn.prepareStatement(sql);
